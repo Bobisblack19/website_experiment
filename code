@@ -1,0 +1,22 @@
+<html>
+    <head>
+        <title>Coding-with-idiots-by-idiots</title> <!-- titles should be placed in between the <head> tags -->
+    </head>
+    <body>
+        <h1>This is heading 1</h1> <!-- headings appear in bold on webpage, decreasing in size each time and can be used to demark sections of page. --> 
+        <h2>This is heading 2</h2> <!-- though you shouldn't try to use headings to bold words, letters etc. loosely as -->
+        <h3>This is heading 3</h3> <!-- search engines use headings to index the web page structure and content -->
+        <h4>This is heading 4</h4> <!-- there are a maximum of 6 headings a page -->
+        <h5>This is heading 5</h5>
+        <hr> <!-- the <hr> tag defines a thematic break. represented as -------------------------------- or a break in the page -->
+        <h6>This is heading 6</h6>
+        
+        <p>This is a paragraph. </p> <!-- this is called a paragraph tag <p>, it allows you to place text into a webpage and have it displayed-->
+        <p>This is another paragraph. </p> <!-- Browsers automatically add an empty line before and after a paragraph. -->
+        
+        <p> what comes next? <br /> Why another paragraph, of course. </p> <!-- the <br /> tag is an empty HTML element that has no end tag. -->
+        <p> why? <br /> because we're building a website thats why! </p> <!-- It can be used to add a single line of text without starting a new paragraph-->
+    </body>
+    </body>
+</html>
+
