@@ -1,0 +1,169 @@
+
+
+inline style is one of the ways to insert a style sheet. With an inline style, a unique style is applied to a single element.
+
+In order to use an inline style, add the style attribute to the relevant tag.
+
+<p style="color:white; background-color:gray;"> <!-- inline style-->
+    This is an example of inline styling. 
+</p>
+
+Internal/Embedded styles are defined within the <style> element, inside the head section of an HTML page.
+
+<html>
+   <head>
+      <style> <!-- Embedded/Internal Style-->
+      p {
+         color:white;
+         background-color:gray;
+      }
+      </style> <!-- Embedded/Internal Style-->
+   </head>
+   <body>
+      <p>This is my first paragraph. </p>
+      <p>This is my second paragraph. </p>
+   </body>
+</html>
+
+An internal style sheet may be used if one single page has a unique style.
+
+With the External Style method, all styling rules are contained in a single text file, which is saved with the .css extension.
+This CSS file is then referenced in the HTML using the <link> tag. The <link> element goes inside the head section.
+
+<head>
+   <link rel="stylesheet" href="example.css"> <!-- Style-->
+</head>
+<body>
+   <p>This is my first paragraph.</p> <!-- element affected by style-->
+   <p>This is my second paragraph. </p> <!-- element affected by style-->
+   <p>This is my third paragraph. </p> <!-- element affected by style-->
+</body>
+
+p {
+    color:white;
+    background-color:gray;
+} <!-- the style being hyper referenced -->
+
+Both relative and absolute paths can be used to define the href for the CSS file. 
+In our example, the path is relative, as the CSS file is in the same directory as the HTML file.
+
+CSS is composed of style rules that the browser interprets and then applies to the corresponding elements in your document.
+A style rule has three parts: selector, property, and value.
+
+<h1>A Sample Heading</h1>
+h1<!--selector--> { color<!--property-->: orange<!--value-->; }
+
+The most common and easy to understand selectors are type selectors. This selector targets element types on the page.
+
+<p>This is a paragraph</p> <!-- element called by selector-->
+p {
+    color: red;
+    font-size:130%;
+}
+
+A CSS declaration always ends with a semicolon, and declaration groups are surrounded by curly braces.
+
+id selectors allow you to style an HTML element that has an id attribute, regardless of their position in the document tree. 
+
+<div id="intro"> <!-- the id that the style will look for-->
+    <p> This paragraph is in the intro section.</p>
+</div>
+<p> This paragraph is not in the intro section.</p>
+
+#intro {
+    color: white;
+    background-color: gray;
+}
+
+To select an element with a specific id, use a hash character, and then follow it with the id of the element.
+
+Class selectors work in a similar way. 
+The major difference is that IDs can only be applied once per page, while classes can be used as many times on a page as needed.
+
+<div>
+    <p class="first">This is a paragraph</p>
+    <p> This is the second paragraph. </p>
+</div>
+<p class="first"> This is not in the intro section</p>
+<p> The second paragraph is not in the intro section. </p>
+
+.first {font-size: 200%;}
+
+To select elements with a specific class, use a period character, followed by the name of the class.
+Do NOT start a class or id name with a number!
+
+Descendant selectors are used to select elements that are descendants of another element. 
+When selecting levels, you can select as many levels deep as you need to.
+
+<div id="intro">
+    <p class="first">This is a <em> paragraph.</em></p> <!-- the word paragraph will be selected and effected by the style--> 
+    <p> This is the second paragraph. </p>
+</div>
+<p class="first"> This is not in the intro section.</p>
+<p> The second paragraph is not in the intro section. </p>
+
+#intro .first em {
+    color: pink; 
+    background-color:gray;
+}
+
+The descendant selector matches all elements that are descendants of a specified element.
+
+Comments are used to explain your code, and may help you when you edit the source code later. Comments are ignored by browsers.
+/* Comment goes here */
+
+p { 
+    color: green; 
+    /* This is a comment */
+    font-size: 150%;
+}
+
+The final appearance of a web page is a result of different styling rules. This is called the Cascade
+
+The three main sources of style information that form a cascade are:
+
+- The stylesheet created by the author of the page
+- The browser's default styles
+- Styles specified by the user
+
+Inheritance refers to the way properties flow through the page. 
+A child element will usually take on the characteristics of the parent element unless otherwise defined.
+
+<html>
+   <head>
+      <style>
+      body {
+         color: green;
+         font-family: Arial;
+      }
+     </style>
+   </head>
+   <body>       
+      <p>
+      This is a text inside the paragraph. <!-- this text will be Arial and Green becasue of the inheritance of the older body tag-->
+      </p>
+   </body>
+</html>
+
+Since the paragraph tag (child element) is inside the body tag (parent element), it takes on any styles assigned to the body tag.
+
+The font-family property specifies the font for an element.
+There are two types of font family names:
+- font family: a specific font family (like Times New Roman or Arial)
+- generic family: a group of font families with a similar look (like Serif or Monospace)
+
+<p class="serif">
+   This is a paragraph shown in serif font.
+</p>
+<p class="sansserif">
+   This is a paragraph shown in sans-serif font.
+</p> 
+<p class="monospace">
+   This is a paragraph shown in monospace font.
+</p> 
+<p class="cursive">
+   This is a paragraph shown in cursive font.
+</p> 
+<p class="fantasy">
+   This is a paragraph shown in fantasy font.
+</p> 
