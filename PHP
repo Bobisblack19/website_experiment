@@ -1,0 +1,308 @@
+PHP: Hypertext Preprocessor (PHP) is a free, highly popular, open source scripting language. PHP scripts are executed on the server.
+
+Just a short list of what PHP is capable of:
+- Generating dynamic page content
+- Creating, opening, reading, writing, deleting, and closing files on the server
+- Collecting form data
+- Adding, deleting, and modifying information stored in your database
+- controlling user-access
+- encrypting data
+- and much more!
+
+PHP runs on numerous, varying platforms, including Windows, Linux, Unix, Mac OS X, and so on.
+PHP is compatible with almost any modern server, such as Apache, IIS, and more.
+PHP supports a wide range of databases.
+PHP is free!
+
+A PHP script starts with <?php and ends with ?>
+
+<?php
+  // PHP code goes here
+?>
+
+Here is an example of a simple PHP file. The PHP script uses a built in function called "echo" to output the text "Hello World!" to a web page.
+
+<html>
+    <head>
+        <title>My First PHP Page</title>
+    </head>
+    <body>
+    <?php   
+        echo "Hello World!";
+    ?>
+    </body>
+</html>
+
+PHP statements end with semicolons (;)
+
+Alternatively, we can include PHP in the HTML <script> tag.
+
+<html>
+  <head>
+    <title>My First PHP Page</title>
+  </head>
+  <body>
+  <script language="php">
+    echo "Hello World!";
+  </script>
+  </body>
+</html>
+
+However, the latest version of PHP removes support for <script language="php"> tags. As such, we recommend using <?php ?> exclusively.
+
+PHP has a built-in "echo" function, which is used to output text.
+In actuality, it's not a function; it's a language construct. As such, it does not require parentheses.
+
+<?php
+    echo "I love PHP!";
+?>
+
+The text should be in single or double quotation marks.
+
+Each PHP statement must end with a semi-colon
+
+<?php
+    echo "A";
+    echo "B";
+    echo "C";
+?>
+
+HTML markup tags can be added to text in the ECHO statement
+
+<?php
+    echo "<strong>This is a bold text.</strong>";
+?>
+
+In PHP code, a comment is a line that is not executed as part of the program. 
+You can use comments to communicate to others so they understand what you're doing, or as a reminder to yourself of what you did.
+
+comments in PHP start with //
+
+<?php   
+    echo "<p>Hello World!</p>";
+    // This is a single-line comment
+    echo "<p>I am learning PHP!</p>";
+    echo "<p>This is my first program!</p>";
+?>
+
+Multi-line comments are used for composing comments that take more than a single line.
+A multi-line comment begins with /* and ends with */ like in CSS.
+
+<?php   
+   echo "<p>Hello World!</p>";
+    /*
+    This is a multi-line comment block
+    that spans over
+    multiple lines
+    */
+    echo "<p>I am learning PHP!</p>";
+    echo "<p>This is my first program!</p>";
+?>
+
+Variables are used as "containers" in which we store information.
+A PHP variable starts with a dollar sign ($), which is followed by the name of the variable.
+
+$variable_name = value;
+
+Rules for PHP variables:
+- A variable name must start with a letter or an underscore
+- A variable name cannot start with a number
+- A variable name can only contain alpha-numeric characters and underscores (A-z, 0-9, and _ )
+- Variable names are case-sensitive ($name and $NAME would be two different variables)
+
+<?php
+    $name = 'John';
+    $age = 25;
+    echo $name;
+?>
+
+Unlike other programming languages, PHP has no command for declaring a variable. It is created the moment you first assign a value to it.
+
+Constants are similar to variables except that they cannot be changed or undefined after they've been defined.
+Begin the name of your constant with a letter or an underscore.
+To create a constant, use the define() function
+
+define(name, value, case-insensitive)
+
+Parameters:
+name: Specifies the name of the constant;
+value: Specifies the value of the constant;
+case-insensitive: Specifies whether the constant name should be case-insensitive. Default is false;
+
+<?php
+    define("MSG", "Hi SoloLearners!", True);
+    echo MSG;
+?>
+
+No dollar sign ($) is necessary before the constant name.
+
+Variables can store a variety of data types.
+Data types supported by PHP: String, Integer, Float, Boolean, Array, Object, NULL, Resource.
+
+A string is a sequence of characters, like "Hello world!"
+A string can be any text within a set of single or double quotes.
+
+<?php
+  $string1 = "Hello world!"; //double quotes
+  $string2 = 'Hello world!';  //single quotes
+?>
+
+An integer is a whole number (without decimals) that must fit the following criteria:
+- It cannot contain commas or blanks
+- It must not have a decimal point
+- It can be either positive or negative
+
+<?php
+  $int1 = 42; // positive number
+  $int2 = -42; // negative number
+?>
+
+A float, or floating point number, is a number that includes a decimal point.
+
+<?php
+  $x = 42.168;
+?>
+
+A Boolean represents two possible states: TRUE or FALSE.
+
+<?php
+  $x = true; $y = false;
+?>
+
+Most of the data types can be used in combination with one another. In this example, string and integer are put together to determine the sum of two numbers.
+
+<?php
+    $str = "10";
+    $int = 20;
+    $sum = $str + $int;
+    echo ($sum);
+?>
+
+PHP automatically converts each variable to the correct data type, according to its value. This is why the variable $str is treated as a number in the addition.
+
+PHP variables can be declared anywhere in the script.
+The scope of a variable is the part of the script in which the variable can be referenced or used.
+
+PHP's most used variable scopes are local, global.
+A variable declared outside a function has a global scope.
+A variable declared within a function has a local scope, and can only be accessed within that function.
+
+<?php
+    $name = 'David';
+    function getName() {
+        echo $name;
+    }
+    getName();
+
+?>
+
+This script will produce an error, as the $name variable has a global scope, and is not accessible within the getName() function.
+
+The global keyword is used to access a global variable from within a function.
+To do this, use the global keyword within the function, prior to the variables.
+
+<?php
+    $name = 'David';
+    function getName() {
+        global $name;
+        echo $name;
+    }
+    getName();
+?>
+
+With PHP, you can use one variable to specify another variable's name.
+So, a variable variable treats the value of another variable as its name.
+
+<?php
+    $a = 'hello';
+    $hello = "Hi!";
+    echo $$a;
+?>
+
+$$a is a variable that is using the value of another variable, $a, as its name. 
+The value of $a is equal to "hello". The resulting variable is $hello, which holds the value "Hi!".
+
+Operators carry out operations on variables and values.
+
+Arithmetic operators work with numeric values to perform common arithmetical operations.
+
+<?php
+    $num1 = 8;
+    $num2 = 6;
+
+    //Addition
+    echo $num1 + $num2; 
+    echo "<br />"; //14
+
+    //Subtraction
+    echo $num1 - $num2; 
+    echo "<br />"; //2
+
+    //Multiplication
+    echo $num1 * $num2; 
+    echo "<br />"; //48
+
+    //Division
+    echo $num1 / $num2; 
+    echo "<br />"; //1.333333333333
+?>
+
+The modulus operator, represented by the % sign, returns the remainder of the division of the first operand by the second operand
+
+<?php
+    $x = 14;
+    $y = 3;
+    echo $x % $y; //2
+?>
+
+If you use floating point numbers with the modulus operator, they will be converted to integers before the operation.
+
+The increment operators are used to increment a variable's value.
+The decrement operators are used to decrement a variable's value.
+
+$x++; // equivalent to $x = $x+1;
+$x--; // equivalent to $x = $x-1; 
+
+Increment and decrement operators either precede or follow a variable.
+
+$x++; // post-increment 
+$x--; // post-decrement 
+++$x; // pre-increment 
+--$x; // pre-decrement
+
+The difference is that the post-increment returns the original value before it changes the variable, 
+while the pre-increment changes the variable first and then returns the value.
+
+$a  = 2; $b = $a++; // $a=3,  $b=2
+$a  = 2; $b = ++$a; // $a=3,  $b=3
+
+Assignment operators are used to write values to variables
+
+$num1 = 5;
+$num2 = $num1;
+
+$num1 and $num2 now contain the value of 5.
+
+Assignments can also be used in conjunction with arithmetic operators.
+
+x+=y = x+y
+x-=y = x-y
+x*=y = x*y
+x/=y = x/y
+x%=y = x%y
+
+<?php
+    $x = 50;
+    $x += 100;
+    echo $x; //150
+?> 
+
+Comparison operators compare two values (numbers or strings).
+Comparison operators are used inside conditional statements, and evaluate to either TRUE or FALSE.
+
+== equal
+=== identical
+!= not equal
+<> not equal
+!== not identical
+
