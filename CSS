@@ -1530,3 +1530,435 @@ The z-index property can change this order.
 }
 
 The z-index works only on positioned elements (position:absolute, position:relative, or position:fixed).
+
+
+animation-name property defines which animation to use.
+
+div {
+    animation-name: colorchange;   
+    animation-duration: 5s;
+    height:100px;
+    background-color:red;
+    -webkit-animation-duration: 5s;
+    -webkit-animation-name: colorchange; 
+}
+@keyframes colorchange {
+    from { width: 0px; }
+    to { width: 100px; }
+}
+@-webkit-keyframes colorchange {
+    from { width: 0px; }
+    to { width: 100px; }
+}
+
+The animation-duration property specifies the duration of the selected animation in seconds.
+
+The animation-timing-function specifies the speed curve of an animation. It can have the following values:
+ease - specifies an animation with a slow start, then fast, then end slowly (this is default)
+linear - specifies an animation with the same speed from start to end
+ease-in - specifies an animation with a slow start
+ease-out - specifies an animation with a slow end
+ease-in-out - specifies an animation with a slow start and end
+cubic-bezier(n,n,n,n) - lets you define your own values in a cubic-bezier function
+
+div {
+    animation-name: colorchange; 
+    animation-duration: 5s;
+    animation-timing-function: linear;
+    height:100px;
+    width:0px;
+    background-color:red;
+    -webkit-animation-name: colorchange; 
+    -webkit-animation-duration: 5s;
+    -webkit-animation-timing-function: linear;
+}
+@keyframes colorchange {
+    from { width: 0px; }
+    to { width: 100px; }
+}
+@-webkit-keyframes colorchange {
+    from { width: 0px; }
+    to { width: 100px; }
+}
+
+animation-delay - defines the delay before an animation starts. The CSS syntax looks like this:
+
+div {
+    animation-name: colorchange;
+    animation-duration: 5s;
+    animation-delay: 2s;
+    height:100px;
+    width:0px;
+    background-color:red;
+    -webkit-animation-name: colorchange;
+    -webkit-animation-duration: 5s;
+    -webkit-animation-delay: 2s;
+}
+@keyframes colorchange {
+    from { width: 0px; }
+    to { width: 100px; }
+}
+@-webkit-keyframes colorchange {
+    from { width: 0px; }
+    to { width: 100px; }
+}
+
+The animation-iteration-count property determines the number of times an animation repeats.
+
+div {
+    animation-name: colorchange;    
+    animation-duration: 5s; 
+    animation-delay: 2s;
+    animation-iteration-count: 5;
+    height:100px;
+    width:0px;
+    background-color:red;
+    -webkit-animation-name: colorchange;    
+    -webkit-animation-duration: 5s; 
+    -webkit-animation-delay: 2s;
+    -webkit-animation-iteration-count: 5;
+}
+@keyframes colorchange {
+    from { width: 0px; }
+    to { width: 100px; }
+}
+@-webkit-keyframes colorchange {
+    from { width: 0px; }
+    to { width: 100px; }
+}
+
+To make the animation repeat forever, just use the infinite value
+
+div {
+    animation-name: colorchange;   
+    animation-duration: 5s; 
+    animation-delay: 2s;  
+    animation-iteration-count: infinite;
+    height:100px;
+    width:0px;
+    background-color:red;
+    -webkit-animation-name: colorchange;   
+    -webkit-animation-duration: 5s; 
+    -webkit-animation-delay: 2s;  
+    -webkit-animation-iteration-count: infinite;
+}
+@keyframes colorchange {
+    from { width: 0px; }
+    to { width: 100px; }
+}
+@-webkit-keyframes colorchange {
+    from { width: 0px; }
+    to { width: 100px; }
+}
+
+The animation-direction indicates how the keyframe should be applied.
+The values can be set as:
+normal - the default value, which means it plays forward from 0 % to 100%.
+reverse - plays the keyframe in an opposite direction from 100 % to 0%
+alternate - the animation first runs forward, then backward, then forward.
+alternate-reverse - the animation first runs backward, then forward, then backward.
+
+If you use 0 or a negative number for the animation-iteration-count, the animation will never start.
+
+Consider the following example:
+div {
+    animation-name: colorchange;
+    animation-duration: 3s;
+    animation-timing-function: ease-in;
+    animation-delay: 1s;
+    animation-iteration-count: infinite;
+    animation-direction: reverse;
+    height:100px;
+    width:0px;
+    background-color:red;
+    -webkit-animation-name: colorchange;
+    -webkit-animation-duration: 3s;
+    -webkit-animation-timing-function: ease-in;
+    -webkit-animation-delay: 1s;
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-direction: reverse;
+}
+@keyframes colorchange {
+    from { width: 0px; }
+    to { width: 100px; }
+}
+@-webkit-keyframes colorchange {
+    from { width: 0px; }
+    to { width: 100px; }
+}
+
+Similar to a line comprehension, this cna be simplified to the following
+
+div {
+    animation: colorchange 3s ease-in 1s infinite reverse;
+    -webkit-animation: colorchange 3s ease-in 1s infinite reverse;
+    height:100px;
+    background-color:red;
+    width:0px;
+}
+@keyframes colorchange {
+    from { width: 0px; }
+    to { width: 100px; }
+}
+@-webkit-keyframes colorchange {
+    from { width: 0px; }
+    to { width: 100px; }
+}
+
+The order in which each property is declared in the shorthand declaration is important and cannot be altered, or the animation will not work properly.
+
+Along with the x and y axes, 3D Transforms introduce the Z-axis, which enables 3D manipulations.
+3D Transforms are quite similar to 2D Transforms:
+rotateX(), rotateY() and rotateZ() rotate an element in 3D space around the corresponding axis at a given degree.
+
+<div class="X">rotateX(150deg)</div>
+<br />
+<div class="Y">rotateY(150deg)</div>
+<br />
+<div class="Z">rotateZ(150deg)</div>
+div.X {
+    width:250px;
+    height:100px;
+    color:white;
+    background-color:green;
+    transform: rotateX(150deg);
+    -webkit-transform: rotateX(150deg);
+}
+div.Y {
+    width:250px;
+    height:100px;
+    color:white;
+    background-color:green;
+    transform: rotateY(150deg);
+    -webkit-transform: rotateY(150deg);
+}
+div.Z {
+    width:250px;
+    height:100px;
+    color:white;
+    background-color:green;
+    transform: rotateZ(150deg);
+    -webkit-transform: rotateZ(150deg);
+}
+
+You can switch off all transformations applied to an element using the none function: transform: none;
+
+3D translate methods allow you to move the element horizontally (translateX), vertically (translateY) and 
+into or out of the screen (translateZ), using any CSS length units (px, em, %, etc.). 
+Positive values moves the element toward the viewer, negative values away.
+
+<div id="mybox1"></div> 
+#mybox1 {
+    transform: translateX(29px) translateY(5em) translateZ(-13px);
+    -webkit-transform: translateX(29px) translateY(5em) translateZ(-13px);
+    width:250px;
+    height:100px;
+    color:white;
+    background-color:green;
+}
+
+The translate3d() method allows us to pass the x, y, and z offsets, all at once and in the following order:
+
+mybox1 {
+    transform: translate3d(-20px, 4em, 10px);
+    -webkit-transform: translate3d(-20px, 4em, 10px);
+    width:250px;
+    height:100px;
+    color:white;
+    background-color:green;
+}
+
+Like the translate3d() method, there are also scale3d() and rotate3d(), which are applicable for scaling and rotating elements in 3D
+
+Perspective defines how the depth of the 3D scene is rendered. Think of perspective as a distance from the viewer to the object. 
+The greater the value, the further the distance, so the less intense the visual effect.
+When defining the perspective property for an element, it is the child elements that get the perspective view, not the element itself.
+
+<div class="empty-div">
+    <div class="green-div">
+        Example
+    </div>
+</div>
+
+
+div.empty-div {
+    position: relative;
+    height: 200px;
+    width: 200px;
+    margin: 30px;
+    padding: 10px;
+    border: 1px solid black;
+    perspective: 100px;
+    -webkit-perspective: 100px;
+}
+div.green-div {
+    padding: 60px;
+    position: absolute;
+    background-color: #8bc34a;
+    border: 1px solid white;
+    transform: rotateX(45deg);
+    -webkit-transform: rotateX(45deg);
+}
+
+The CSS filter property lets you apply graphical effects like blurring or color shifting to an element.
+Filters are commonly used to adjust the rendering of images, backgrounds, and borders.
+
+Image filtering is useful when you want to have different styling for the same image.
+Instead of uploading multiple images to the website, you can upload only one image and then define visual effects using the filter property.
+
+Filter functions include blur(), brightness(), contrast(), drop-shadow(), grayscale(), hue-rotate(), invert(), opacity(), saturate() and sepia().
+
+drop-shadow(w h b c) creates a shadow effect that extends beyond an image for the width w and height h with blur b and color c.
+w, h, and b are values in pixels.
+
+<!DOCTYPE html>
+<html>
+    <body>
+        Image<br>
+        <img src="http://www.sololearn.com/images/tree.jpg"/>
+        <p>Drop Shadow 5px 9px 2px blue<p>
+        <img class="dropshadow" src="http://www.sololearn.com/images/tree.jpg"/>
+    </body>
+</html>
+img {
+    width: 130px;
+    height: 100px;
+}
+.dropshadow {
+    filter: drop-shadow(5px 9px 2px blue);
+    -webkit-filter: drop-shadow(5px 9px 2px blue);
+}
+
+The grayscale function converts an image to grayscale.
+The only parameter defines the proportion of the conversion.
+
+0% grayscale is the original image, whereas 100% makes the image completely grayscale.
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Grayscale</title>
+  </head>
+  <body>
+    <img class="original" src="http://www.sololearn.com/images/tree.jpg">
+    <img class="filtered" src="http://www.sololearn.com/images/tree.jpg">
+  </body>
+</html>
+
+.filtered {
+  filter: grayscale(100%);
+}
+
+The sepia function converts an image to sepia.
+This is similar to using grayscale but with a reddish-brown color tone.
+
+The idea behind sepia filters is that they can make black and white photos look a bit more eye-catching than the basic grayscale version.
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Sepia </title>
+  </head>
+  <body>
+    <img class="original" src="http://www.sololearn.com/images/tree.jpg">
+    <img class="filtered" src="http://www.sololearn.com/images/tree.jpg">
+  </body>
+</html>
+
+  .filtered {
+    filter: sepia(100%);
+  }
+  
+The saturate function controls the color saturation for an image. The only parameter determines the proportion of the saturation that is applied to the image.
+The parameter can be either a percentage value or a number.
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Saturate </title>
+  </head>
+  <body>
+    <img class="original" src="http://www.sololearn.com/images/tree.jpg">
+    <img class="filtered" src="http://www.sololearn.com/images/tree.jpg">
+  </body>
+</html>
+.filtered {
+  filter: saturate(50%);
+  } 
+  
+The hue-rotate function applies a hue rotation (based on the color circle) to an image.
+The function takes an angle of rotation as its parameter. The value of angle defines the number of degrees around the color circle the input samples will be adjusted.
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Hue-Rotate </title>
+  </head>
+  <body>
+    <img class="original" src="http://www.sololearn.com/images/tree.jpg">
+    <img class="filtered" src="http://www.sololearn.com/images/tree.jpg">
+  </body>
+</html>
+
+.filtered {
+   filter: hue-rotate(180deg);
+}
+
+The invert function inverts the colors of an image to make dark areas bright and bright areas dark.
+The function takes the proportion of the conversion as its parameter.
+
+The parameter can be either a percentage value or a number.
+0%invert leaves the image unchanged, whereas 100% creates a completely inverted image that is similar to a photographic negative.
+
+.filtered {
+  filter: invert(70%);
+}
+
+
+The opacity function sets the opacity of an image to change its transparency.
+
+0% opacity creates a completely transparent image, whereas 100% is the original image.
+
+.filtered {
+  filter: opacity(70%);
+}
+
+The brightness(amount) function adjusts the brightness of an image, making it appear brighter or darker.
+The amount parameter determines the brightness level of the image. The parameter can take either a percentage value or a number.
+
+A value of 0% results in an image that is completely black.
+A value of 100% results in an image that is unchanged.
+Any amount over 100% produces a brighter image.
+
+.filtered {
+  filter: brightness(50%);
+}
+
+The contrast function adjusts the contrast of the image.
+The amount parameter can take either a percentage value or a number.
+
+A value under100%decreases the contrast, while a value over 100% increases it.
+A value of 0% will create an image that is completely gray, while a value of 100% leaves the image unchanged.
+The value 0.5 corresponds to 50%, while 1 is the same as 100%
+
+.filtered {
+    filter: contrast(140%);
+ }
+ 
+ The blur function applies a blur effect to an image.
+The blur function has only one parameter, radius, which defines how many pixels on the screen blend into each other. (a larger value creates more blur).
+ 
+ .blured {
+  filter:blur(5px);
+}
+
+Multiple CSS filters can be used together by separating them with spaces.
+
+.filtered {
+  filter: blur(5px) hue-rotate(180deg);
+}
+
+.filtered {
+  filter:  saturate(30%) drop-shadow(5px 9px 2px gray) blur(1px);
+}
+
